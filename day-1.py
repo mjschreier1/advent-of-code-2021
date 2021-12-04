@@ -1,6 +1,9 @@
+import utils as u
+
+
 def main():
-    pretty_print('Number of times depth increased:', count_increasing_depths())
-    pretty_print('Number of times normalized depth increased:', count_normalized_increasing_depths())
+    u.pretty_print('Number of times depth increased:', count_increasing_depths())
+    u.pretty_print('Number of times normalized depth increased:', count_normalized_increasing_depths())
 
 
 def count_increasing_depths():
@@ -33,12 +36,6 @@ def count_normalized_increasing_depths():
             previous_normalized_depth = current_normalized_depth
             i += 1
     return count
-
-
-def pretty_print(description: str, value: any):
-    print(description)
-    print(value)
-    print()
 
 
 if __name__ == '__main__':
