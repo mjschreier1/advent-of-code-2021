@@ -6,16 +6,16 @@ def main():
     coordinates = calculate_coordinates('day-2-movements.txt')
     depth = coordinates['y'] * -1
     horizontal_distance = coordinates['x']
-    u.pretty_print('Depth:', depth)
-    u.pretty_print('Horizontal Distance:', horizontal_distance)
-    u.pretty_print('Depth x Horizontal Distance:', depth * horizontal_distance)
+    u.pretty_print('Depth', depth)
+    u.pretty_print('Horizontal Distance', horizontal_distance)
+    u.pretty_print('Depth x Horizontal Distance', depth * horizontal_distance)
     # Part 2
     refined_coordinates = calculate_refined_coordinates('day-2-movements.txt')
     refined_depth = refined_coordinates['y'] * -1
     refined_horizontal_distance = refined_coordinates['x']
-    u.pretty_print('Refined Depth:', refined_depth)
-    u.pretty_print('Refined Horizontal Distance:', refined_horizontal_distance)
-    u.pretty_print('Refined Depth x Refined Horizontal Distance:', refined_depth * refined_horizontal_distance)
+    u.pretty_print('Refined Depth', refined_depth)
+    u.pretty_print('Refined Horizontal Distance', refined_horizontal_distance)
+    u.pretty_print('Refined Depth x Refined Horizontal Distance', refined_depth * refined_horizontal_distance)
 
 
 def calculate_coordinates(movements_file: str) -> dict:

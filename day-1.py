@@ -2,8 +2,8 @@ import utils as u
 
 
 def main():
-    u.pretty_print('Number of times depth increased:', count_increasing_depths())
-    u.pretty_print('Number of times normalized depth increased:', count_normalized_increasing_depths())
+    u.pretty_print('Number of times depth increased', count_increasing_depths())
+    u.pretty_print('Number of times normalized depth increased', count_normalized_increasing_depths())
 
 
 def count_increasing_depths():
