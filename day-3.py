@@ -48,7 +48,7 @@ def calculate_life_support_ratings(power_readings_file: str, current_calculation
     co2_bit_cardinality = 0
     # Need to track whether both a 0 and 1 have been found for co2 because the bit to return must be found at least once
     # If the least common bit was found 0 times, it should not be returned!
-    co2_both_digits_found = False
+    co2_both_bits_found = False
     with open(power_readings_file) as f:
         for raw_line in f:
             # Once the new-line character is reached, there are no more digits to consider, so prepare the final output
@@ -67,11 +67,11 @@ def calculate_life_support_ratings(power_readings_file: str, current_calculation
                 if raw_line.startswith(current_calculation['o2']):
                     o2_bit_cardinality += 1 if raw_line[bit_to_calculate:bit_to_calculate + 1] == '1' else -1
                 if raw_line.startswith(current_calculation['co2']):
-                    digit_to_add = 1 if raw_line[bit_to_calculate:bit_to_calculate + 1] == '1' else -1
-                    if not co2_both_digits_found and ((co2_bit_cardinality > 0 and digit_to_add < 0) or (co2_bit_cardinality < 0 and digit_to_add > 0)):
-                        co2_both_digits_found = True
-                    co2_bit_cardinality += digit_to_add
-    next_co2_bit_is_one = ((co2_bit_cardinality < 0) if co2_both_digits_found else (co2_bit_cardinality > 0))
+                    bit_to_add = 1 if raw_line[bit_to_calculate:bit_to_calculate + 1] == '1' else -1
+                    if not co2_both_bits_found and ((co2_bit_cardinality > 0 and bit_to_add < 0) or (co2_bit_cardinality < 0 and bit_to_add > 0)):
+                        co2_both_bits_found = True
+                    co2_bit_cardinality += bit_to_add
+    next_co2_bit_is_one = ((co2_bit_cardinality < 0) if co2_both_bits_found else (co2_bit_cardinality > 0))
     return calculate_life_support_ratings(
         power_readings_file,
         {
